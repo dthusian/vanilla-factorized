@@ -4,6 +4,7 @@
   "package": "dev.wateralt.mc.mcfactory.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "CraftingInventoryAccessor",
     "DispenserDispenseMixin"
   ],
   "client": [

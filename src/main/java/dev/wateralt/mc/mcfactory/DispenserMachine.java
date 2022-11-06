@@ -1,4 +1,4 @@
-package dev.wateralt.mc.mcfactory.machines;
+package dev.wateralt.mc.mcfactory;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPointer;

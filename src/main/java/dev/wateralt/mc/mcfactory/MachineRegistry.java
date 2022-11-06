@@ -1,6 +1,6 @@
 package dev.wateralt.mc.mcfactory;
 
-import dev.wateralt.mc.mcfactory.machines.DispenserMachine;
+import dev.wateralt.mc.mcfactory.machines.MachineAutocrafter;
 import dev.wateralt.mc.mcfactory.machines.MachineRancher;
 import net.minecraft.block.Block;
 
@@ -13,6 +13,7 @@ public class MachineRegistry {
 
   public static void init() {
     addDispenserMachine(new MachineRancher());
+    addDispenserMachine(new MachineAutocrafter());
   }
 
   public static void addDispenserMachine(DispenserMachine machine) {

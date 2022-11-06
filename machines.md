@@ -65,7 +65,7 @@ When pulsed, buckets the contents of the cauldron in front of it.
 ## Machine: Autocrafter
 - Mod Block: Green Glazed Terracotta
 - Cost Block: Lodestone
-- Status: WIP
+- Status: Done
 
 When pulsed, craft using ingredients (dropped items) sitting on top of 3x3 crafting table blocks above dispenser (top is north), and push item out of dispenser port.
 
@@ -87,4 +87,5 @@ When pulsed, melts down netherite gear into 4 netherite scraps.
 - Status: WIP
 
 Librarian villagers will only sell level 1 books. This is used in conjunction
-with the 
+with the enchanter, which can combine books at no work cost, to
+create books of any magnitude, but at a higher cost.

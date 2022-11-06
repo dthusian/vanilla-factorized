@@ -1,5 +1,6 @@
 package dev.wateralt.mc.mcfactory.mixin;
 
+import dev.wateralt.mc.mcfactory.DispenserMachine;
 import dev.wateralt.mc.mcfactory.MachineRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
@@ -18,22 +19,24 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class DispenserDispenseMixin {
   @Inject(method = "dispense(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/util/math/BlockPos;)V", at = @At("HEAD"), cancellable = true)
   private void dispense(ServerWorld world, BlockPos pos, CallbackInfo info) {
-    Block modBlock = world.getBlockState(pos.add(0, -1, 0)).getBlock();
-    Block costBlock = world.getBlockState(pos.add(0, -2, 0)).getBlock();
-    MachineRegistry.Machine machine = MachineRegistry.DISPENSER_MACHINES.get(modBlock);
     BlockEntity te = world.getBlockEntity(pos);
-    if(machine != null && te instanceof DispenserBlockEntity) {
-      if(!machine.costBlock().equals(costBlock)) {
-        world.syncWorldEvent(1001, pos, 0);
-        world.emitGameEvent(null, GameEvent.DISPENSE_FAIL, pos);
-      } else {
-        boolean success = machine.activate(new BlockPointerImpl(world, pos));
-        if(!success) {
+    if(te instanceof DispenserBlockEntity) {
+      Block modBlock = world.getBlockState(pos.add(0, -1, 0)).getBlock();
+      Block costBlock = world.getBlockState(pos.add(0, -2, 0)).getBlock();
+      DispenserMachine machine = MachineRegistry.DISPENSER_MACHINES.get(modBlock);
+      if(machine != null) {
+        if(!machine.getCostBlock().equals(costBlock)) {
           world.syncWorldEvent(1001, pos, 0);
           world.emitGameEvent(null, GameEvent.DISPENSE_FAIL, pos);
+        } else {
+          boolean success = machine.activate(new BlockPointerImpl(world, pos));
+          if(!success) {
+            world.syncWorldEvent(1001, pos, 0);
+            world.emitGameEvent(null, GameEvent.DISPENSE_FAIL, pos);
+          }
         }
+        info.cancel();
       }
-      info.cancel();
     }
   }
 }

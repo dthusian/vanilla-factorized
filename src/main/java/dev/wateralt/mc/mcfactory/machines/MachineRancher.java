@@ -1,10 +1,10 @@
 package dev.wateralt.mc.mcfactory.machines;
 
+import dev.wateralt.mc.mcfactory.DispenserMachine;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.entity.passive.CowEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.predicate.entity.EntityPredicates;
@@ -17,7 +17,7 @@ import net.minecraft.util.math.Box;
 
 import java.util.List;
 
-import static dev.wateralt.mc.mcfactory.machines.DispenserUtil.*;
+import static dev.wateralt.mc.mcfactory.util.DispenserUtil.*;
 
 public class MachineRancher extends DispenserMachine {
   @Override

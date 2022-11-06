@@ -1,4 +1,4 @@
-package dev.wateralt.mc.mcfactory.machines;
+package dev.wateralt.mc.mcfactory.util;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
