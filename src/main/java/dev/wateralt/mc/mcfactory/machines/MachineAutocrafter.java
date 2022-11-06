@@ -6,7 +6,6 @@ import dev.wateralt.mc.mcfactory.util.DummyCraftingInventory;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -14,10 +13,8 @@ import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPointer;
-import net.minecraft.util.math.Box;
 
 import java.util.List;
 import java.util.Optional;
@@ -70,13 +67,11 @@ public class MachineAutocrafter extends DispenserMachine {
     ItemStack output = recipe.craft(worldCraftingInventory);
     List<ItemStack> excess = recipe.getRemainder(worldCraftingInventory);
     DispenserUtil.dropDispenserItem(ptr, output);
-    excess.forEach(itemStack -> {
-      DispenserUtil.dropDispenserItem(ptr, itemStack);
-    });
+    excess.forEach(itemStack -> DispenserUtil.dropDispenserItem(ptr, itemStack));
     for(i = 0; i < worldCraftingInventory.size(); i++) {
       ItemStack stack = worldCraftingInventory.getStack(i);
       if(!stack.isEmpty()) {
-        stack.setCount(stack.getCount() - 1);
+        stack.decrement(1);
       }
     }
     world.playSound(null, ptr.getPos(), SoundEvents.ENTITY_VILLAGER_WORK_TOOLSMITH, SoundCategory.AMBIENT, 1.0f, 1.0f);

@@ -36,7 +36,7 @@ public class MachineRancher extends DispenserMachine {
     BlockPos pointing = getDispenserPointing(ptr);
     DispenserBlockEntity te = ptr.getBlockEntity();
     int idx = searchDispenserItem(te, stack -> stack.getItem().equals(Items.BUCKET));
-    if(idx > 0) {
+    if(idx >= 0) {
       List<CowEntity> cows = world.getEntitiesByClass(CowEntity.class, new Box(pointing), EntityPredicates.VALID_LIVING_ENTITY);
       if(cows.size() > 0) {
         world.playSound(null, pointing, SoundEvents.ENTITY_COW_MILK, SoundCategory.NEUTRAL, 1.0f, 1.0f);
