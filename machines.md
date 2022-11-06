@@ -1,3 +1,5 @@
+# List of Machines and Tweaks
+
 ## Machine: Rancher
 - Mod Block: White Glazed Terracotta
 - Cost Block: Gold Block
@@ -80,3 +82,9 @@ When pulsed, melts down iron and gold tools and armor into 50% of their original
 - Status: WIP
 
 When pulsed, melts down netherite gear into 4 netherite scraps.
+
+## Tweak: Librarian Villagers
+- Status: WIP
+
+Librarian villagers will only sell level 1 books. This is used in conjunction
+with the 

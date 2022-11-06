@@ -1,6 +1,6 @@
 package dev.wateralt.mc.mcfactory.mixin;
 
-import dev.wateralt.mc.mcfactory.DispenserMachines;
+import dev.wateralt.mc.mcfactory.MachineRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.entity.BlockEntity;
@@ -20,7 +20,7 @@ public class DispenserDispenseMixin {
   private void dispense(ServerWorld world, BlockPos pos, CallbackInfo info) {
     Block modBlock = world.getBlockState(pos.add(0, -1, 0)).getBlock();
     Block costBlock = world.getBlockState(pos.add(0, -2, 0)).getBlock();
-    DispenserMachines.Machine machine = DispenserMachines.MACHINES.get(modBlock);
+    MachineRegistry.Machine machine = MachineRegistry.DISPENSER_MACHINES.get(modBlock);
     BlockEntity te = world.getBlockEntity(pos);
     if(machine != null && te instanceof DispenserBlockEntity) {
       if(!machine.costBlock().equals(costBlock)) {

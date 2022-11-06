@@ -12,6 +12,6 @@ public class MCFactory implements ModInitializer {
   @Override
   public void onInitialize() {
     LOGGER.info("Initialize");
-    DispenserMachines.init();
+    MachineRegistry.init();
   }
 }
