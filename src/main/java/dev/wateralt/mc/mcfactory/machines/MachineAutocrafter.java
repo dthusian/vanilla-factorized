@@ -5,8 +5,10 @@ import dev.wateralt.mc.mcfactory.util.DispenserUtil;
 import dev.wateralt.mc.mcfactory.util.DummyCraftingInventory;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.inventory.CraftingInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.RecipeType;
@@ -43,15 +45,18 @@ public class MachineAutocrafter extends DispenserMachine {
       }
     }
     // identify the recipe
-    ItemEntity[] entities = new ItemEntity[9];
     CraftingInventory worldCraftingInventory = new DummyCraftingInventory(3, 3);
     int i = 0;
     for(int z = -1; z <= 1; z++) {
       for(int x = -1; x <= 1; x++) {
-        List<ItemEntity> items = world.getEntitiesByClass(ItemEntity.class, new Box(ptr.getPos().add(x, 2, z)), entity -> true);
-        if(items.size() > 0) {
-          entities[i] = items.get(0);
-          worldCraftingInventory.setStack(i, entities[i].getStack().copy());
+        BlockEntity te = world.getBlockEntity(ptr.getPos().add(x, 2, z));
+        if(te instanceof Inventory slot) {
+          for(int j = 0; j < slot.size(); j++) {
+            if(!slot.getStack(j).isEmpty()) {
+              worldCraftingInventory.setStack(i, slot.getStack(j));
+              break;
+            }
+          }
         }
         i++;
       }
@@ -68,9 +73,10 @@ public class MachineAutocrafter extends DispenserMachine {
     excess.forEach(itemStack -> {
       DispenserUtil.dropDispenserItem(ptr, itemStack);
     });
-    for(i = 0; i < entities.length; i++) {
-      if(entities[i] != null) {
-        entities[i].getStack().setCount(entities[i].getStack().getCount() - 1);
+    for(i = 0; i < worldCraftingInventory.size(); i++) {
+      ItemStack stack = worldCraftingInventory.getStack(i);
+      if(!stack.isEmpty()) {
+        stack.setCount(stack.getCount() - 1);
       }
     }
     world.playSound(null, ptr.getPos(), SoundEvents.ENTITY_VILLAGER_WORK_TOOLSMITH, SoundCategory.AMBIENT, 1.0f, 1.0f);
