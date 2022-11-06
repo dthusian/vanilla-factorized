@@ -6,10 +6,10 @@
 | Trader             | Orange Glazed     | Planned |
 |                    | Magenta Glazed    |         |
 |                    | Light Blue Glazed |         |
-| Pulverizer         | Yellow Glazed     | Planned |
+| Pulverizer         | Yellow Glazed     | WIP     |
 | Breeder            | Lime Glazed       | Planned |
 | Tramsuter          | Pink Glazed       | Planned |
-| Placer             | Gray Glazed       | WIP     |
+| Placer             | Gray Glazed       | Done    |
 |                    | Light Gray Glazed |         |
 |                    | Cyan Glazed       |         |
 | Enchanter          | Purple Glazed     | Planned |
