@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.wateralt.mc.mcfactory.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "DispenserDispenseMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
