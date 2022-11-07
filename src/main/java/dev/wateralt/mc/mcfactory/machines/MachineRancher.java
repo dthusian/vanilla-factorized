@@ -1,6 +1,7 @@
 package dev.wateralt.mc.mcfactory.machines;
 
 import dev.wateralt.mc.mcfactory.DispenserMachine;
+import dev.wateralt.mc.mcfactory.util.DispenserUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.DispenserBlockEntity;
@@ -42,9 +43,7 @@ public class MachineRancher extends DispenserMachine {
         world.playSound(null, pointing, SoundEvents.ENTITY_COW_MILK, SoundCategory.NEUTRAL, 1.0f, 1.0f);
         te.removeStack(idx, 1);
         ItemStack stack = new ItemStack(Items.MILK_BUCKET, 1);
-        if(te.addToFirstFreeSlot(stack) == -1) {
-          dropDispenserItem(ptr, stack);
-        }
+        DispenserUtil.addItemOrDrop(ptr, stack);
         return true;
       }
     }

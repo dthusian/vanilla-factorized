@@ -8,6 +8,8 @@ import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicates;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
@@ -41,6 +43,7 @@ public class MachineBreeder extends DispenserMachine {
           // Breedable
           stack.decrement(1);
           chosenOne.setLoveTicks(600);
+          world.playSound(null, pointing, SoundEvents.ENTITY_GENERIC_EAT, SoundCategory.NEUTRAL, 1.0f, 1.0f);
           return true;
         }
       }

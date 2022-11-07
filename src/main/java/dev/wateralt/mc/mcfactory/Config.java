@@ -7,6 +7,7 @@ import java.io.*;
 public class Config {
   public final boolean enableAutocrafter = true;
   public final boolean enableBreeder = true;
+  public final boolean enableCauldronTap = true;
   public final boolean enablePlacer = true;
   public final boolean enablePulverizer = true;
   public final boolean enableRancher = true;

@@ -7,13 +7,13 @@
 |                    | Magenta Glazed    |         |
 |                    | Light Blue Glazed |         |
 | Pulverizer         | Yellow Glazed     | Done    |
-| Breeder            | Lime Glazed       | WIP     |
-| Tramsuter          | Pink Glazed       | Planned |
+| Breeder            | Lime Glazed       | Done    |
+| Transmuter         | Pink Glazed       | Planned |
 | Placer             | Gray Glazed       | Done    |
 |                    | Light Gray Glazed |         |
 |                    | Cyan Glazed       |         |
 | Enchanter          | Purple Glazed     | Planned |
-| Cauldron Tap       | Blue Glazed       | Planned |
+| Cauldron Tap       | Blue Glazed       | Done    |
 |                    | Brown Glazed      |         |
 | Autocrafter        | Green Glazed      | Done    |
 | Metal Recycler     | Red Glazed        | Planned |

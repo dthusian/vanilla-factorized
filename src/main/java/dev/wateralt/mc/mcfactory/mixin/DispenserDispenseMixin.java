@@ -21,8 +21,8 @@ public class DispenserDispenseMixin {
   private void dispense(ServerWorld world, BlockPos pos, CallbackInfo info) {
     BlockEntity te = world.getBlockEntity(pos);
     if(te instanceof DispenserBlockEntity) {
-      Block modBlock = world.getBlockState(pos.add(0, -1, 0)).getBlock();
-      Block costBlock = world.getBlockState(pos.add(0, -2, 0)).getBlock();
+      Block modBlock = world.getBlockState(pos.add(0, -2, 0)).getBlock();
+      Block costBlock = world.getBlockState(pos.add(0, -3, 0)).getBlock();
       DispenserMachine machine = MachineRegistry.DISPENSER_MACHINES.get(modBlock);
       if(machine != null) {
         if(!machine.getCostBlock().equals(costBlock)) {
