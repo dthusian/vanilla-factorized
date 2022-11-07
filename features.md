@@ -10,7 +10,7 @@
 |                    | Light Blue Glazed |           |         |
 | Pulverizer         | Yellow Glazed     | Gold      | Done    |
 | Breeder            | Lime Glazed       | Gold      | Done    |
-| Transmuter         | Pink Glazed       | Diamond   | Planned |
+| Transmuter         | Pink Glazed       | Diamond   | Done    |
 | Placer             | Gray Glazed       | Diamond   | Done    |
 |                    | Light Gray Glazed |           |         |
 |                    | Cyan Glazed       |           |         |
@@ -18,8 +18,8 @@
 | Cauldron Tap       | Blue Glazed       | Diamond   | Done    |
 |                    | Brown Glazed      |           |         |
 | Autocrafter        | Green Glazed      | Lodestone | Done    |
-| Metal Recycler     | Red Glazed        | Diamond   | Planned |
-| Netherite Recycler | Black Glazed      | Lodestone | Planned |
+| Metal Recycler     | Red Glazed        | Diamond   | Done    |
+| Netherite Recycler | Black Glazed      | Lodestone | Done    |
 
 ### Summary
 

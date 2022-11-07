@@ -26,6 +26,10 @@ public class MachineRegistry {
       addDispenserMachine(new MachineCauldronTap());
     if(cfg.enableTransmutor)
       addDispenserMachine(new MachineTransmutor());
+    if(cfg.enableRecycler)
+      addDispenserMachine(new MachineRecycler());
+    if(cfg.enableNetheriteRecycler)
+      addDispenserMachine(new MachineNetheriteRecycler());
   }
 
   public static void addDispenserMachine(DispenserMachine machine) {

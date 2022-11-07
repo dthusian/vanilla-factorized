@@ -8,9 +8,11 @@ public class Config {
   public final boolean enableAutocrafter = true;
   public final boolean enableBreeder = true;
   public final boolean enableCauldronTap = true;
+  public final boolean enableNetheriteRecycler = true;
   public final boolean enablePlacer = true;
   public final boolean enablePulverizer = true;
   public final boolean enableRancher = true;
+  public final boolean enableRecycler = true;
   public final boolean enableTransmutor = true;
 
   public static Config load(File file) throws FileNotFoundException {
