@@ -11,6 +11,7 @@ public class Config {
   public final boolean enablePlacer = true;
   public final boolean enablePulverizer = true;
   public final boolean enableRancher = true;
+  public final boolean enableTransmutor = true;
 
   public static Config load(File file) throws FileNotFoundException {
     Gson gson = new Gson();

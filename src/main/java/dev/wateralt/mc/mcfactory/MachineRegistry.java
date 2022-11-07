@@ -24,6 +24,8 @@ public class MachineRegistry {
       addDispenserMachine(new MachineBreeder());
     if(cfg.enableCauldronTap)
       addDispenserMachine(new MachineCauldronTap());
+    if(cfg.enableTransmutor)
+      addDispenserMachine(new MachineTransmutor());
   }
 
   public static void addDispenserMachine(DispenserMachine machine) {
