@@ -4,7 +4,6 @@ import dev.wateralt.mc.mcfactory.mixin.CraftingInventoryAccessor;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
 
 public class DummyCraftingInventory extends CraftingInventory {
   public DummyCraftingInventory(int width, int height) {
@@ -13,8 +12,7 @@ public class DummyCraftingInventory extends CraftingInventory {
 
   @Override
   public ItemStack removeStack(int slot, int amount) {
-    ItemStack itemStack = Inventories.splitStack(((CraftingInventoryAccessor) this).getStacks(), slot, amount);
-    return itemStack;
+    return Inventories.splitStack(((CraftingInventoryAccessor) this).getStacks(), slot, amount);
   }
 
   @Override

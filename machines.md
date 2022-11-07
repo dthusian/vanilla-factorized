@@ -21,9 +21,9 @@ If the shovel is a gold shovel, convert it into red sand instead.
 
 ## Machine: Breeder
 - Mod Block: Lime Glazed Terracotta
-- Cost Block: Diamond Block
+- Cost Block: Gold Block
 
-When pulsed, feeds an animal above the cauldron with items inside the dispenser.
+When pulsed, feeds an animals in front of the dispenser.
 
 ## Machine: Transmuter
 - Mod Block: Pink Glazed Terracotta

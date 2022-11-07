@@ -9,11 +9,10 @@
   ],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/mcfactory/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.wateralt.mc.mcfactory.MCFactory"
+      "dev.wateralt.mc.mcfactory.Mod"
     ]
   },
   "mixins": [

@@ -5,7 +5,6 @@ import dev.wateralt.mc.mcfactory.util.DispenserUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -36,8 +35,8 @@ public class MachinePulverizer extends DispenserMachine {
     ServerWorld world = ptr.getWorld();
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
     BlockState blockState = world.getBlockState(pointing);
-    BlockEntity bte = ptr.getBlockEntity();
-    if(blockState.getBlock().equals(Blocks.GRAVEL) && bte instanceof DispenserBlockEntity te) {
+    DispenserBlockEntity te = ptr.getBlockEntity();
+    if(blockState.getBlock().equals(Blocks.GRAVEL)) {
       int idx = DispenserUtil.searchDispenserItem(te, stack -> SHOVELS.contains(stack.getItem()));
       if(idx >= 0) {
         Block replaceWith;

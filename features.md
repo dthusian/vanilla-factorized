@@ -6,8 +6,8 @@
 | Trader             | Orange Glazed     | Planned |
 |                    | Magenta Glazed    |         |
 |                    | Light Blue Glazed |         |
-| Pulverizer         | Yellow Glazed     | WIP     |
-| Breeder            | Lime Glazed       | Planned |
+| Pulverizer         | Yellow Glazed     | Done    |
+| Breeder            | Lime Glazed       | WIP     |
 | Tramsuter          | Pink Glazed       | Planned |
 | Placer             | Gray Glazed       | Done    |
 |                    | Light Gray Glazed |         |
