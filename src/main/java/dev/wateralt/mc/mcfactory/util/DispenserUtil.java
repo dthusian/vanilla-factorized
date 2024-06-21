@@ -11,7 +11,7 @@ import java.util.function.Predicate;
 
 public class DispenserUtil {
   public static BlockPos getDispenserPointing(BlockPointer ptr) {
-    return ptr.getPos().offset(ptr.getBlockState().get(DispenserBlock.FACING));
+    return ptr.pos().offset(ptr.state().get(DispenserBlock.FACING));
   }
 
   public static int searchDispenserItem(DispenserBlockEntity te, Predicate<ItemStack> predicate) {
@@ -25,11 +25,11 @@ public class DispenserUtil {
   }
 
   public static void dropDispenserItem(BlockPointer ptr, ItemStack itemStack) {
-    ItemDispenserBehavior.spawnItem(ptr.getWorld(), itemStack, 1, ptr.getBlockState().get(DispenserBlock.FACING), DispenserBlock.getOutputLocation(ptr));//TODO
+    ItemDispenserBehavior.spawnItem(ptr.world(), itemStack, 1, ptr.state().get(DispenserBlock.FACING), DispenserBlock.getOutputLocation(ptr));//TODO
   }
 
   public static void addItemOrDrop(BlockPointer ptr, ItemStack itemStack) {
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     boolean hasExtra = true;
     for(int i = 0; i < 9; i++) {
       ItemStack slot = te.getStack(i);

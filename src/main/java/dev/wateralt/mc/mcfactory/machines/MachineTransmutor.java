@@ -39,10 +39,10 @@ public class MachineTransmutor extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    ServerWorld world = ptr.getWorld();
+    ServerWorld world = ptr.world();
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
     BlockState input1 = world.getBlockState(pointing);
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     for (Recipe recipe : RECIPES) {
       int idx = DispenserUtil.searchDispenserItem(te, stack -> stack.getItem().equals(recipe.inputItem));
       if (recipe.inputBlock.equals(input1.getBlock()) && idx >= 0) {

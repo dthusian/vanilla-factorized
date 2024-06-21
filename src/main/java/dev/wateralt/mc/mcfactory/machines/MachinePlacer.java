@@ -31,9 +31,9 @@ public class MachinePlacer extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    ServerWorld world = ptr.getWorld();
+    ServerWorld world = ptr.world();
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     int idx = DispenserUtil.searchDispenserItem(te, stack -> !stack.isEmpty());
     if(idx >= 0) {
       ItemStack stack = te.getStack(idx);
@@ -41,7 +41,7 @@ public class MachinePlacer extends DispenserMachine {
         BlockState blockState = blockItem.getBlock().getDefaultState();
         if(blockState != null && REPLACEABLE_BLOCKS.contains(world.getBlockState(pointing).getBlock())) {
           world.setBlockState(pointing, blockState);
-          world.createAndScheduleBlockTick(pointing, blockItem.getBlock(), 1);
+          world.scheduleBlockTick(pointing, blockItem.getBlock(), 1);
           stack.decrement(1);
           world.playSound(null, pointing, SoundEvents.BLOCK_METAL_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
           return true;

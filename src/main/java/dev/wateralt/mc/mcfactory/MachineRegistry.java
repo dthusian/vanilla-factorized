@@ -11,11 +11,9 @@ public class MachineRegistry {
   public static final Map<Block, DispenserMachine> DISPENSER_MACHINES = new HashMap<>();
 
   public static void init() {
-    Config cfg = Mod.getInstance().getConfig();
+    Config cfg = MCFactory.getInstance().getConfig();
     if(cfg.enableRancher)
       addDispenserMachine(new MachineRancher());
-    if(cfg.enableAutocrafter)
-      addDispenserMachine(new MachineAutocrafter());
     if(cfg.enablePlacer)
       addDispenserMachine(new MachinePlacer());
     if(cfg.enablePulverizer)

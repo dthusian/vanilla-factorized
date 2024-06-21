@@ -12,7 +12,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "dev.wateralt.mc.mcfactory.Mod"
+      "dev.wateralt.mc.mcfactory.MCFactory"
     ]
   },
   "mixins": [

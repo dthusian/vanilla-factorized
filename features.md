@@ -8,16 +8,16 @@
 | Trader             | Orange Glazed     | Lodestone | Planned |
 |                    | Magenta Glazed    |           |         |
 |                    | Light Blue Glazed |           |         |
-| Pulverizer         | Yellow Glazed     | Gold      | Done    |
+|                    | Yellow Glazed     |           |         |
 | Breeder            | Lime Glazed       | Gold      | Done    |
 | Transmuter         | Pink Glazed       | Diamond   | Done    |
 | Placer             | Gray Glazed       | Diamond   | Done    |
-|                    | Light Gray Glazed |           |         |
+| Anvil              | Light Gray Glazed | Lodestone | Planned |
 |                    | Cyan Glazed       |           |         |
 | Enchanter          | Purple Glazed     | Lodestone | Planned |
 | Cauldron Tap       | Blue Glazed       | Diamond   | Done    |
-|                    | Brown Glazed      |           |         |
-| Autocrafter        | Green Glazed      | Lodestone | Done    |
+| Pulverizer         | Brown Glazed      | Gold      | Done    |
+|                    | Green Glazed      |           |         |
 | Metal Recycler     | Red Glazed        | Diamond   | Done    |
 | Netherite Recycler | Black Glazed      | Lodestone | Done    |
 
@@ -58,7 +58,7 @@ If the shovel is a gold shovel, convert it into red sand instead.
 - Mod Block: Lime Glazed Terracotta
 - Cost Block: Gold Block
 
-When pulsed, feeds an animals in front of the dispenser.
+When pulsed, feeds a random animal in the block in front of the dispenser.
 
 ### Machine: Transmuter
 - Mod Block: Pink Glazed Terracotta
@@ -95,7 +95,7 @@ When pulsed, buckets the contents of the cauldron in front of it.
 - Mod Block: Green Glazed Terracotta
 - Cost Block: Lodestone
 
-When pulsed, craft using ingredients (dropped items) sitting on top of 3x3 crafting table blocks above dispenser (top is north), and push item out of dispenser port.
+When pulsed, crafts using ingredients inside of any inventory  on top of 3x3 crafting table blocks above dispenser (top is north), and push items out of dispenser port.
 
 ### Machine: Metal Recycler
 - Mod Block: Red Glazed Terracotta

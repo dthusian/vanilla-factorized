@@ -54,12 +54,12 @@ public class MachineRecycler extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     int idx = DispenserUtil.searchDispenserItem(te, stack -> RECIPES.containsKey(stack.getItem()));
     if(idx >= 0) {
       DispenserUtil.dropDispenserItem(ptr, RECIPES.get(te.getStack(idx).getItem()));
       te.removeStack(idx, 1);
-      ptr.getWorld().playSound(null, ptr.getPos(), SoundEvents.ENTITY_GENERIC_BURN, SoundCategory.BLOCKS, 1.0f, 1.0f);
+      ptr.world().playSound(null, ptr.pos(), SoundEvents.ENTITY_GENERIC_BURN, SoundCategory.BLOCKS, 1.0f, 1.0f);
       return true;
     }
     return false;

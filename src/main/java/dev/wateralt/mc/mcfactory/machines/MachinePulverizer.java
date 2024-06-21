@@ -9,6 +9,7 @@ import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -22,7 +23,7 @@ public class MachinePulverizer extends DispenserMachine {
 
   @Override
   public Block getModBlock() {
-    return Blocks.YELLOW_GLAZED_TERRACOTTA;
+    return Blocks.BROWN_GLAZED_TERRACOTTA;
   }
 
   @Override
@@ -32,10 +33,10 @@ public class MachinePulverizer extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    ServerWorld world = ptr.getWorld();
+    ServerWorld world = ptr.world();
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
     BlockState blockState = world.getBlockState(pointing);
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     if(blockState.getBlock().equals(Blocks.GRAVEL)) {
       int idx = DispenserUtil.searchDispenserItem(te, stack -> SHOVELS.contains(stack.getItem()));
       if(idx >= 0) {
@@ -46,7 +47,7 @@ public class MachinePulverizer extends DispenserMachine {
         } else {
           replaceWith = Blocks.SAND;
         }
-        stack.damage(1, world.getRandom(), null);
+        stack.damage(1, world, null, (item) -> {});
         world.setBlockState(pointing, replaceWith.getDefaultState());
         world.playSound(null, pointing, SoundEvents.BLOCK_GRAVEL_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
         return true;

@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 import java.io.*;
 
 public class Config {
-  public final boolean enableAutocrafter = true;
   public final boolean enableBreeder = true;
   public final boolean enableCauldronTap = true;
   public final boolean enableNetheriteRecycler = true;

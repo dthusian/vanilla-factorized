@@ -11,8 +11,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 
-public class Mod implements ModInitializer {
-  private static Mod INSTANCE;
+public class MCFactory implements ModInitializer {
+  private static MCFactory INSTANCE;
   private Logger logger;
   private Config config;
 
@@ -36,7 +36,7 @@ public class Mod implements ModInitializer {
     MachineRegistry.init();
   }
 
-  public static Mod getInstance() {
+  public static MCFactory getInstance() {
     if(INSTANCE == null) throw new IllegalStateException();
     return INSTANCE;
   }

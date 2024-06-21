@@ -39,12 +39,12 @@ public class MachineNetheriteRecycler extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     int idx = DispenserUtil.searchDispenserItem(te, stack -> NETHERITE_GEAR.contains(stack.getItem()));
     if(idx >= 0) {
       te.removeStack(idx, 1);
       DispenserUtil.dropDispenserItem(ptr, new ItemStack(Items.NETHERITE_SCRAP, 4));
-      ptr.getWorld().playSound(null, ptr.getPos(), SoundEvents.ENTITY_GENERIC_BURN, SoundCategory.BLOCKS, 1.0f, 1.0f);
+      ptr.world().playSound(null, ptr.pos(), SoundEvents.ENTITY_GENERIC_BURN, SoundCategory.BLOCKS, 1.0f, 1.0f);
       return true;
     }
     return false;

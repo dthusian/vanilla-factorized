@@ -30,11 +30,11 @@ public class MachineBreeder extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    World world = ptr.getWorld();
+    World world = ptr.world();
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
-    DispenserBlockEntity te = ptr.getBlockEntity();
+    DispenserBlockEntity te = ptr.blockEntity();
     List<AnimalEntity> entities = world.getEntitiesByClass(AnimalEntity.class, new Box(pointing), EntityPredicates.VALID_ENTITY);
-    if(entities.size() > 0) {
+    if(!entities.isEmpty()) {
       AnimalEntity chosenOne = entities.get(world.getRandom().nextInt(entities.size()));
       int idx = DispenserUtil.searchDispenserItem(te, chosenOne::isBreedingItem);
       if(idx >= 0) {

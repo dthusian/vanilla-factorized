@@ -29,12 +29,12 @@ public class MachineCauldronTap extends DispenserMachine {
 
   @Override
   public boolean activate(BlockPointer ptr) {
-    World world = ptr.getWorld();
+    World world = ptr.world();
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
     BlockState blockState = world.getBlockState(pointing);
-    int idx = DispenserUtil.searchDispenserItem(ptr.getBlockEntity(), stack -> stack.getItem().equals(Items.BUCKET));
+    int idx = DispenserUtil.searchDispenserItem(ptr.blockEntity(), stack -> stack.getItem().equals(Items.BUCKET));
     if(idx >= 0) {
-      ItemStack stack = ((DispenserBlockEntity)ptr.getBlockEntity()).getStack(idx);
+      ItemStack stack = ptr.blockEntity().getStack(idx);
       boolean success = false;
       ItemStack addItems = null;
       SoundEvent sound = null;
@@ -48,7 +48,7 @@ public class MachineCauldronTap extends DispenserMachine {
         sound = SoundEvents.ITEM_BUCKET_FILL_LAVA;
         success = true;
       }
-      if(blockState.getBlock().equals(Blocks.POWDER_SNOW_CAULDRON) && blockState.get(PowderSnowCauldronBlock.LEVEL) == PowderSnowCauldronBlock.MAX_LEVEL) {
+      if(blockState.getBlock().equals(Blocks.POWDER_SNOW_CAULDRON) && blockState.get(LeveledCauldronBlock.LEVEL) == LeveledCauldronBlock.MAX_LEVEL) {
         addItems = new ItemStack(Items.POWDER_SNOW_BUCKET);
         sound = SoundEvents.ITEM_BUCKET_FILL_POWDER_SNOW;
         success = true;
