@@ -2,24 +2,24 @@
 
 ## Machines
 
-| Name               | ModBlock          | CostBlock | Status  |
-|--------------------|-------------------|-----------|---------|
-| Rancher            | White Glazed      | Gold      | Done    |
-| Trader             | Orange Glazed     | Lodestone | Planned |
-|                    | Magenta Glazed    |           |         |
-|                    | Light Blue Glazed |           |         |
-|                    | Yellow Glazed     |           |         |
-| Breeder            | Lime Glazed       | Gold      | Done    |
-| Transmuter         | Pink Glazed       | Diamond   | Done    |
-| Placer             | Gray Glazed       | Diamond   | Done    |
-| Anvil              | Light Gray Glazed | Lodestone | Planned |
-|                    | Cyan Glazed       |           |         |
-| Enchanter          | Purple Glazed     | Lodestone | Planned |
-| Cauldron Tap       | Blue Glazed       | Diamond   | Done    |
-| Pulverizer         | Brown Glazed      | Gold      | Done    |
-|                    | Green Glazed      |           |         |
-| Metal Recycler     | Red Glazed        | Diamond   | Done    |
-| Netherite Recycler | Black Glazed      | Lodestone | Done    |
+| Name               | ModBlock          | CostBlock | Status |
+|--------------------|-------------------|-----------|--------|
+| Rancher            | White Glazed      | Gold      | Done   |
+| Trader             | Orange Glazed     | Lodestone | Done   |
+|                    | Magenta Glazed    |           |        |
+|                    | Light Blue Glazed |           |        |
+| Placer             | Yellow Glazed     | Diamond   | Done   |
+| Breeder            | Lime Glazed       | Gold      | Done   |
+| Transmuter         | Pink Glazed       | Diamond   | Done   |
+|                    | Gray Glazed       |           |        |
+|                    | Light Gray Glazed |           |        |
+|                    | Cyan Glazed       |           |        |
+|                    | Purple Glazed     |           |        |
+| Cauldron Tap       | Blue Glazed       | Diamond   | Done   |
+| Pulverizer         | Brown Glazed      | Gold      | Done   |
+|                    | Green Glazed      |           |        |
+| Metal Recycler     | Red Glazed        | Diamond   | Done   |
+| Netherite Recycler | Black Glazed      | Lodestone | Done   |
 
 ### Summary
 

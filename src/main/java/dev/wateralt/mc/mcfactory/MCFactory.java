@@ -21,11 +21,12 @@ public class MCFactory implements ModInitializer {
     if(INSTANCE != null) throw new IllegalStateException();
     INSTANCE = this;
     logger = LoggerFactory.getLogger("mcfactory");
-    logger.info("Initialize");
+    logger.info("onInitialize");
     URI filepath = FabricLoader.getInstance().getConfigDir().resolve("vanillafactorized.json").toUri();
     try {
       config = Config.load(new File(filepath));
     } catch (FileNotFoundException e) {
+      logger.info("Config not found, creating default config");
       config = new Config();
       try {
         Config.save(new File(filepath), config);

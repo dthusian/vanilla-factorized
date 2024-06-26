@@ -1,6 +1,7 @@
 package dev.wateralt.mc.mcfactory.mixin;
 
 import dev.wateralt.mc.mcfactory.DispenserMachine;
+import dev.wateralt.mc.mcfactory.MCFactory;
 import dev.wateralt.mc.mcfactory.MachineRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,7 +29,14 @@ public class DispenserDispenseMixin {
       if(machine != null) {
         ci.cancel();
         if(machine.getCostBlock().equals(costBlock)) {
-          boolean success = machine.activate(new BlockPointer(world, pos, state, dispTe));
+          boolean success = false;
+          try {
+            success = machine.activate(new BlockPointer(world, pos, state, dispTe));
+          } catch(Exception e) {
+            MCFactory.getInstance()
+              .getLogger()
+              .warn("Machine " + machine.getClass().getSimpleName() + " threw an error: " + e);
+          }
           if(success) return;
         }
         world.syncWorldEvent(1001, pos, 0);

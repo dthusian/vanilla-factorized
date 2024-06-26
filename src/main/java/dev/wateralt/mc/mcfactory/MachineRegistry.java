@@ -28,6 +28,8 @@ public class MachineRegistry {
       addDispenserMachine(new MachineRecycler());
     if(cfg.enableNetheriteRecycler)
       addDispenserMachine(new MachineNetheriteRecycler());
+    if(cfg.enableTrader)
+      addDispenserMachine(new MachineTrader());
   }
 
   public static void addDispenserMachine(DispenserMachine machine) {
