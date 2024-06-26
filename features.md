@@ -1,4 +1,4 @@
-# Feature Implementation Progress
+# Features
 
 ## Machines
 
@@ -21,7 +21,7 @@
 | Metal Recycler     | Red Glazed        | Diamond   | Done   |
 | Netherite Recycler | Black Glazed      | Lodestone | Done   |
 
-### Summary
+## Summary
 
 The primary features of this mod are the dispenser machines added.
 You can turn any dispenser into a dispenser machine by adding
@@ -45,7 +45,11 @@ When pulsed, milks cow in front of dispenser using a bucket inside the dispenser
 - Mod Block: Orange Glazed Terracotta
 - Cost Block: Lodestone
 
-TODO
+When pulsed, tries to execute a trade with the items in the dispenser.
+The trade is selected using a name tag placed in the dispenser, with its
+name set to a 0-indexed integer (i.e. 0 = first trade, 1 = second trade, etc.).
+
+Villager and player XP are not awarded. 
 
 ### Machine: Pulverizer
 - Mod Block: Yellow Glazed Terracotta
@@ -79,23 +83,11 @@ When pulsed, performs one of the following recipes. The first ingredient is a bl
 
 When pulsed, places items as blocks.
 
-### Machine: Enchanter
-- Mod Block: Purple Glazed Terracotta
-- Cost Block: Lodestone
-
-When pulsed, combines two random items inside like an anvil and consumes 75 xp from a nearby player or xp orbs.
-
 ### Machine: Cauldron Tap
 - Mod Block: Blue Glazed Terracotta
 - Cost Block: Diamond Block
 
 When pulsed, buckets the contents of the cauldron in front of it.
-
-### Machine: Autocrafter
-- Mod Block: Green Glazed Terracotta
-- Cost Block: Lodestone
-
-When pulsed, crafts using ingredients inside of any inventory  on top of 3x3 crafting table blocks above dispenser (top is north), and push items out of dispenser port.
 
 ### Machine: Metal Recycler
 - Mod Block: Red Glazed Terracotta
@@ -108,18 +100,3 @@ When pulsed, melts down iron and gold tools and armor into 50% of their original
 - Cost Block: Lodestone
 
 When pulsed, melts down netherite gear into 4 netherite scraps.
-
-## Tweaks
-
-| Name                         | Status  |
-|------------------------------|---------|
-| Villager Lv1 Enchanted Books | Planned |
-
-
-### Tweak: Librarian Villagers
-
-Librarian villagers will only sell level 1 books. This is used in conjunction
-with the enchanter, which can combine books at no work cost, to
-create books of any magnitude, but at a higher cost.
-
-
