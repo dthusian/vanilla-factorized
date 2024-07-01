@@ -1,6 +1,7 @@
 package dev.wateralt.mc.mcfactory.machines;
 
 import dev.wateralt.mc.mcfactory.DispenserMachine;
+import dev.wateralt.mc.mcfactory.MCFactory;
 import dev.wateralt.mc.mcfactory.util.DispenserUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -20,6 +21,7 @@ import net.minecraft.village.TradeOffer;
 import net.minecraft.village.TradeOfferList;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class MachineTrader extends DispenserMachine {
   @Override
@@ -67,8 +69,14 @@ public class MachineTrader extends DispenserMachine {
     if(villagers.isEmpty()) return false;
     VillagerEntity villager = villagers.get(ptr.world().getRandom().nextInt(villagers.size()));
     TradeOfferList offers = villager.getOffers();
+    //debug
+    String debugStr = offers.stream()
+      .map(v -> "%s %s %s".formatted(v.getFirstBuyItem(), v.getSecondBuyItem(), v.getSellItem()))
+      .collect(Collectors.joining("|"));
+    MCFactory.getInstance().getLogger().info("offers: " + debugStr);
+    //debug
     TradeOffer offer = null;
-    if(offers.size() <= configSlot) {
+    if(configSlot >= offers.size() || configSlot < 0) {
       return false;
     }
     offer = offers.get(configSlot);
@@ -106,7 +114,7 @@ public class MachineTrader extends DispenserMachine {
     finalOffer.use();
     
     // drop output and play sound
-    DispenserUtil.dropDispenserItem(ptr, finalOffer.getSellItem());
+    DispenserUtil.dropDispenserItem(ptr, finalOffer.copySellItem());
     ptr.world().playSound(null, pointing, SoundEvents.ENTITY_VILLAGER_YES, SoundCategory.BLOCKS, 1.0f, 1.0f);
     
     return true;

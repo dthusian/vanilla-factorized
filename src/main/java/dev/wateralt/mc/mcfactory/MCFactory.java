@@ -20,7 +20,7 @@ public class MCFactory implements ModInitializer {
   public void onInitialize() {
     if(INSTANCE != null) throw new IllegalStateException();
     INSTANCE = this;
-    logger = LoggerFactory.getLogger("mcfactory");
+    logger = LoggerFactory.getLogger("MCFactory");
     logger.info("onInitialize");
     URI filepath = FabricLoader.getInstance().getConfigDir().resolve("vanillafactorized.json").toUri();
     try {
