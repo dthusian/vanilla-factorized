@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "mcfactory",
-  "version": "1.0",
+  "version": "1.0.1",
   "name": "Vanilla Factorized",
   "description": "Adds simple autocrafting and auto placement for vanilla. Compatible with vanilla clients.",
   "authors": [
