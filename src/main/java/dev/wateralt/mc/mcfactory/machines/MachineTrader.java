@@ -69,12 +69,6 @@ public class MachineTrader extends DispenserMachine {
     if(villagers.isEmpty()) return false;
     VillagerEntity villager = villagers.get(ptr.world().getRandom().nextInt(villagers.size()));
     TradeOfferList offers = villager.getOffers();
-    //debug
-    String debugStr = offers.stream()
-      .map(v -> "%s %s %s".formatted(v.getFirstBuyItem(), v.getSecondBuyItem(), v.getSellItem()))
-      .collect(Collectors.joining("|"));
-    MCFactory.getInstance().getLogger().info("offers: " + debugStr);
-    //debug
     TradeOffer offer = null;
     if(configSlot >= offers.size() || configSlot < 0) {
       return false;
@@ -84,6 +78,10 @@ public class MachineTrader extends DispenserMachine {
     
     // check that max uses haven't been exceeded
     if(finalOffer.getUses() >= finalOffer.getMaxUses()) {
+      return false;
+    }
+    // check that max cost hasn't been exceeded
+    if(finalOffer.getDisplayedFirstBuyItem().getCount() > configMaxCost) {
       return false;
     }
     
