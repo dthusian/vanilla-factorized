@@ -24,7 +24,9 @@ public class MachineNetheriteRecycler extends DispenserMachine {
       Items.NETHERITE_HELMET,
       Items.NETHERITE_CHESTPLATE,
       Items.NETHERITE_LEGGINGS,
-      Items.NETHERITE_BOOTS
+      Items.NETHERITE_BOOTS,
+      Items.LODESTONE,
+      Items.NETHERITE_INGOT
   );
 
   @Override

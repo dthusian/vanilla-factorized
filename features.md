@@ -34,6 +34,8 @@ For example, this configuration creates a basic Placer machine.
 [Grey Glazed Terracotta]
 [Diamond Block]
 ```
+Notice that the block between the dispenser and terracotta doesn't have to be
+air, it can be any block.
 
 ### Machine: Rancher
 - Mod Block: White Glazed Terracotta
@@ -46,8 +48,13 @@ When pulsed, milks cow in front of dispenser using a bucket inside the dispenser
 - Cost Block: Lodestone
 
 When pulsed, tries to execute a trade with the items in the dispenser.
-The trade is selected using a name tag placed in the dispenser, with its
-name set to a 0-indexed integer (i.e. 0 = first trade, 1 = second trade, etc.).
+A name tag in the dispenser configures the trader. Its format is as follows,
+where `<>` denotes a required parameter and `[]` denotes an optional parameter:
+```
+<trade id>[,<max cost>]
+```
+- `trade id`: 0-indexed integer indicating which trade to make (i.e. 0 = first trade, 1 = second trade, etc.).
+- `max cost`: Maximum cost to execute the trade at. If the cost exceeds this, the trade will not be performed.
 
 Villager and player XP are not awarded. 
 
@@ -55,8 +62,14 @@ Villager and player XP are not awarded.
 - Mod Block: Yellow Glazed Terracotta
 - Cost Block: Gold Block
 
-When pulsed, uses 1 durability from shovel inside the dispenser and converts a block of gravel in front of the dispenser into sand.
-If the shovel is a gold shovel, convert it into red sand instead.
+When pulsed, uses 1 durability from shovel inside the dispenser and performs one of the following conversions:
+
+| Input       | Output   | Golden Shovel? |
+|-------------|----------|----------------|
+| Cobblestone | Gravel   | -              |
+| Gravel      | Sand     | No             |
+| Gravel      | Red Sand | Yes            |
+| Coarse Dirt | Dirt     | -              |
 
 ### Machine: Breeder
 - Mod Block: Lime Glazed Terracotta
@@ -88,6 +101,7 @@ When pulsed, places items as blocks.
 - Cost Block: Diamond Block
 
 When pulsed, buckets the contents of the cauldron in front of it.
+Water, lava, and powder snow can be collected.
 
 ### Machine: Metal Recycler
 - Mod Block: Red Glazed Terracotta

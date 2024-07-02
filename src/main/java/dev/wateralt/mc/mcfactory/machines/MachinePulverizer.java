@@ -9,7 +9,6 @@ import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -17,10 +16,19 @@ import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MachinePulverizer extends DispenserMachine {
-  private static final List<Item> SHOVELS = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
-
+  private record Recipe(Block input, Block output, boolean golden) { }
+  
+  private static final List<Item> TOOLS = List.of(Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.GOLDEN_SHOVEL, Items.DIAMOND_SHOVEL, Items.NETHERITE_SHOVEL);
+  private static final List<Recipe> RECIPES = List.of(
+    new Recipe(Blocks.COBBLESTONE, Blocks.GRAVEL, false),
+    new Recipe(Blocks.GRAVEL, Blocks.RED_SAND, true),
+    new Recipe(Blocks.GRAVEL, Blocks.SAND, false),
+    new Recipe(Blocks.COARSE_DIRT, Blocks.DIRT, false)
+  );
+  
   @Override
   public Block getModBlock() {
     return Blocks.BROWN_GLAZED_TERRACOTTA;
@@ -37,22 +45,22 @@ public class MachinePulverizer extends DispenserMachine {
     BlockPos pointing = DispenserUtil.getDispenserPointing(ptr);
     BlockState blockState = world.getBlockState(pointing);
     DispenserBlockEntity te = ptr.blockEntity();
-    if(blockState.getBlock().equals(Blocks.GRAVEL)) {
-      int idx = DispenserUtil.searchDispenserItem(te, stack -> SHOVELS.contains(stack.getItem()));
-      if(idx >= 0) {
-        Block replaceWith;
-        ItemStack stack = te.getStack(idx);
-        if(stack.getItem().equals(Items.GOLDEN_SHOVEL)) {
-          replaceWith = Blocks.RED_SAND;
-        } else {
-          replaceWith = Blocks.SAND;
-        }
-        stack.damage(1, world, null, (item) -> {});
-        world.setBlockState(pointing, replaceWith.getDefaultState());
-        world.playSound(null, pointing, SoundEvents.BLOCK_GRAVEL_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        return true;
-      }
-    }
-    return false;
+    Block input = blockState.getBlock();
+
+    int idx = DispenserUtil.searchDispenserItem(te, stack -> TOOLS.contains(stack.getItem()));
+    if(idx < 0) return false;
+    ItemStack shovelStack = te.getStack(idx);
+    
+    Optional<Recipe> maybeRecipe = RECIPES.stream().filter(v ->
+      v.input() == input && (shovelStack.getItem() == Items.GOLDEN_SHOVEL || !v.golden())
+    ).findFirst();
+    
+    if(maybeRecipe.isEmpty()) return false;
+    Recipe recipe = maybeRecipe.get();
+
+    shovelStack.damage(1, world, null, (item) -> {});
+    world.setBlockState(pointing, recipe.output().getDefaultState());
+    world.playSound(null, pointing, SoundEvents.BLOCK_GRAVEL_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
+    return true;
   }
 }
